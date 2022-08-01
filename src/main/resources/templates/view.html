@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>data</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <h3 class="text-center pb-5"><font>Data</font><br> </h3>
+            <a href="/create" class="btn btn-primary mb-2" >Create Data</a>
+            <table id="tableData" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">NIK</th>
+                        <th scope="col">Tanggal Lahir</th>
+                        <th scope="col">Foto</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="data: ${Data}">
+                        <td th:text="${data.id}" th:id="${data.id}"></td>
+                        <td th:text="${#dates.format(data.tanggal, 'dd-MMM-yyyy')}"></td>
+                        <td>
+                            <img th:src="@{${'/image?id='+ data.id}}" th:alt="@{${'/image?id='+ data.id}}" width="200">
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" th:href="@{/edit/{id}(id=${data.id})}">Edit</a>
+                            <a class="btn btn-danger" href="#" th:onclick="|hapusData('${data.id}')|">Delete</a>
+                        </td>
+
+                </tbody>
+            </table>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            const hapusData = val => {
+                const id = val
+                if (confirm(`Yakin ingin menghapus data ${id}?`)) {
+                    location.href = `/delete/${id}`;
+                }
+            }
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#tableData').DataTable();
+            });
+        </script>
+    </body>
+</html>

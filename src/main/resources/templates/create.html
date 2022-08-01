@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Create</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    </head>
+    <body>
+        <br>
+            <h3 class="text-center pb-5"><font>Create</font><br> </h3>
+        <div class="container mt-3">
+            <div class="container">
+                <div class="row">
+                    <form action="/newdata" method="post" name="form" enctype="multipart/form-data">
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">ID</label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <input type="text" name="id" class="form-control" size="4" required>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Tanggal Lahir</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="date" name="tanggal" placeholder="(yyyy-mm-dd)" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Gambar</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="file" name="gambar" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="item form-group mt-4">
+                            <div class="col-md-6 col-sm-6 ">
+                                <button type="submit" name="submit" class="btn btn-primary" value="Simpan">Simpan</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
